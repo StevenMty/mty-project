@@ -1,0 +1,34 @@
+.index{
+	.index-mty-top{
+		display: flex;
+		background-color: #1c2438;
+		.index-mty-top-left{
+			width: 200px;
+			margin-top: 8px;
+			font-size: 14px;
+			color: #fff;
+			font-weight: 900;
+		}
+	}
+	.index-mty-content{
+		position: fixed;
+		top: 61px;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		.index-mty-content-left{
+			width: 200px;
+			height: 100%;
+			background-color: #1c2438;
+			.ivu-menu,.ivu-menu-dark,.ivu-menu-vertical{
+				width: 200px !important;
+			}
+		}
+		.index-mty-content-right{
+			width: 100%;
+			height: 100%;
+			border: 1px solid;
+		}
+	}
+}
