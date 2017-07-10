@@ -37,7 +37,7 @@
                 <label>我在这喧嚣里把你寻找</label>
             </div>
             <Menu mode="horizontal" :theme="theme1" active-name="1">
-                <Menu-item :name="child.value" v-for="(child, index) in menu" @click.native="changeMenu(index, child.url)">{{child.label}}</Menu-item>
+                <!-- <Menu-item :name="child.value" v-for="(child, index) in menu" @click.native="changeMenu(index, child.url)">{{child.label}}</Menu-item> -->
             </Menu>
         </div>
         <div class="index-mty-content">
@@ -53,7 +53,7 @@
     </div>
 </template>
 <script>
-    import './../static/css/index.scss';
+    import './../../static/css/index.scss';
 
     export default {
         data(){
@@ -67,6 +67,7 @@
                         children:[
                             { label:'分类管理', value:'1', url:'/index/typeAdmin' },
                             { label:'商品管理', value:'2', url:'/index/product' },
+                            { label:'拖拽列表', value:'3', url:'/index/dragTable' },
                         ]
                     }
                 ],

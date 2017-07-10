@@ -21,6 +21,13 @@ const routers = [{
 			title:'商品'
 		},
 		component: (resolve) => require(['./views/product.vue'], resolve)
+	}, {
+		path: 'dragTable',
+		name:'dragTable',
+		meta:{
+			title:'拖拽列表'
+		},
+		component: (resolve) => require(['./views/dragTable.vue'], resolve)
 	}]
 }];
 export default routers; 
