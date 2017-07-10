@@ -65,6 +65,7 @@
 	</div>
 </template>
 <script>
+    import { mapGetters, mapActions } from 'vuex'
     import './../static/css/admin.scss';
     import { addCate, queryCates } from './../service/index';
     export default {
@@ -100,6 +101,25 @@
                             { label:'果酿', value:'11', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
                             { label:'方便速食', value:'12', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
                         ],
+                    },
+                    {
+                        label:'良品好物',
+                        value:'3',
+                        children:[
+                            { label:'日用家电', value:'1', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'数码文具', value:'2', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'服侍起居', value:'3', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'水具酒具', value:'4', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'餐具厨具', value:'5', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'美容洗护', value:'6', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'鲜花绿植', value:'7', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                            { label:'香薰蜡烛', value:'8', url:'http://os73jwf97.bkt.clouddn.com/colora.png' },
+                        ],
+                    },
+                    {
+                        label:'好味食品',
+                        value:'4',
+                        children:[],
                     }
                 ],
                 value1:'1',
@@ -111,7 +131,7 @@
                 updateUrla:'http://os73jwf97.bkt.clouddn.com/colore.png',
                 checkAdd:false,
                 childs:[],
-                confirm:false,
+                confirm:true,
                 loading:false,
             }
         },
@@ -124,8 +144,14 @@
                 }
             }
         },
+        computed: mapGetters({
+            products: 'menus'
+        }),
         mounted(){
-            this.$store.dispatch('queryCates');
+            // this.$store.dispatch('queryCates');
+        },
+        created () {
+            this.$store.dispatch('queryMenus')
         },
         methods: {
             AddType(type, i){
@@ -145,6 +171,7 @@
                     data.value = String(parseInt(this.datas.length, 10) + 1);
                     data.children = this.childs;
                     this.datas.push(data);
+                    this.confirm = true;
                 }else{
                     const dataAdd = this.datas[this.indexs].children;
                     const data = {};
@@ -164,7 +191,7 @@
             confirmAdd(){
                 const data = {};
                 data.name = '111';
-                this.addCate();
+                this.$store.dispatch('addMenus', data);
             }
         }
     };

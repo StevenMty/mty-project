@@ -2,7 +2,7 @@ import Vue from 'vue';
 import iView from 'iview';
 import VueRouter from 'vue-router';
 import Routers from './router';
-import store from './vuex/store';
+import store from './vuex/index';
 
 import Util from './libs/util';
 import App from './app.vue';

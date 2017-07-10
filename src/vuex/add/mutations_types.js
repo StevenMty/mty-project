@@ -1,4 +1,5 @@
-// 添加分类
-export const ADDCATE = 'ADDCATE';
+// 查询
+export const QUERY_MENU = 'QUERY_MENU';
 
-export const QUERYCATES = 'QUERYCATES';
+// 添加
+export const ADD_MENU = 'ADD_MENU';
